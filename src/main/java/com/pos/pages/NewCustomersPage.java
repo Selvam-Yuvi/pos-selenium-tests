@@ -2,17 +2,22 @@ package com.pos.pages;
 
 import com.framework.selenium.api.design.Locators;
 import com.framework.testng.api.base.ProjectSpecificMethods;
+import com.github.javafaker.Faker;
 
 public class NewCustomersPage extends ProjectSpecificMethods {
 
 	public NewCustomersPage enterCustomerId(String customerId) {
-		clearAndType(locateElement(Locators.XPATH, "//label[text()='Customer Id']/following::input"), customerId);
-		reportStep(customerId+"Customer Id is entered successfully", "pass");
+		Faker fk = new Faker();
+		String custid = fk.number().digits(8);
+		clearAndType(locateElement(Locators.XPATH, "//label[text()='Customer Id']/following::input"),custid );
+		reportStep(custid+"Customer Id is entered successfully", "pass");
 		return this;
 	}
 	public NewCustomersPage enterCustomerName(String customerName) {
-		clearAndType(locateElement(Locators.XPATH, "//label[text()='Customer Name']/following::input"), customerName);
-		reportStep(customerName+"Customer Name is entered successfully", "pass");
+		Faker fk = new Faker();
+		String fname = fk.name().firstName();
+		clearAndType(locateElement(Locators.XPATH, "//label[text()='Customer Name']/following::input"), fname);
+		reportStep(fname+"Customer Name is entered successfully", "pass");
 		return this;
 	}
 	public NewCustomersPage enterCustomerDescription(String customerDescription) {
