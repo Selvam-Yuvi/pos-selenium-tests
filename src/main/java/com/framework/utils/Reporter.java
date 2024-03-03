@@ -30,7 +30,7 @@ public abstract class Reporter extends DriverInstance {
 	private static final ThreadLocal<String> testName = new ThreadLocal<String>();
 	
 	private String fileName = "result.html";
-	private String pattern = "dd-MMM-yyyy HH-mm-ss";
+	private String pattern = "dd-MMM-yyyy_HH-mm-ss";
 
 	public String testcaseName, testDescription, authors, category, dataFileName, dataFileType, excelFileName;
 	public static String folderName = "";
